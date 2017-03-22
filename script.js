@@ -1,9 +1,26 @@
 window.onload = function() {
-  createTable(table_data);	
+  createTable(table_data);
 };
 
-// This function dynamically generates and inserts an HTML table into the DOM
-function createTable(data) {
+/* This function dynamically generates and inserts an HTML table into the DOM
+   
+   data: data structure containing sample data to populate the table
+   customElementId: default parameter containing the id of the element the table 
+   is inserted into
+*/
+function createTable(data, customElementId) {
+	
+	// The element the table is inserted into
+	var insertionElement;
+
+	// If no element id is provided, use the default tableDiv id
+	if(customElementId === undefined) {
+		insertionElement = document.getElementById('tableDiv');
+	}
+	else {
+		insertionElement = document.getElementById(customElementId);
+	}
+
 	// Make the table responsive
 	var tableDiv = document.getElementById('tableDiv');
 	tableDiv.style.overflowX = "auto";
@@ -66,8 +83,8 @@ function createTable(data) {
 		tableRow.appendChild(homeLocation);
 	}
 
-	// Add the table to the tableDiv node
-	tableDiv.appendChild(table);
+	// Add the table to the insertionElement node
+	insertionElement.appendChild(table);
 };
 
 
