@@ -9,7 +9,6 @@ window.onload = function() {
    is inserted into
 */
 function createTable(data, customElementId) {
-	
 	// The element the table is inserted into
 	var insertionElement;
 
@@ -19,12 +18,15 @@ function createTable(data, customElementId) {
 	}
 	else {
 		insertionElement = document.getElementById(customElementId);
+
+		// If an invalid id is provided, use the default table div
+		if(insertionElement === null) {
+			insertionElement = document.getElementById('tableDiv');
+		}
 	}
 
 	// Make the table responsive
-	var tableDiv = document.getElementById('tableDiv');
-	tableDiv.style.overflowX = "auto";
-
+	insertionElement.style.overflowX = "auto";
 
 	// Create a table and add styling to it
 	var table = document.createElement('TABLE');
