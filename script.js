@@ -28,7 +28,7 @@ function createTable(data) {
 	var homeHeader = document.createElement('TH');
 
 	// Populate the header row
-	tableHeader.appendChild(tr);
+	tableHeader.appendChild(headerRow);
 	firstNameHeader.innerHTML = "First Name";
 	lastNameHeader.innerHTML = "Last Name";
 	homeHeader.innerHTML = "Home";
@@ -66,6 +66,7 @@ function createTable(data) {
 		tableRow.appendChild(homeLocation);
 	}
 
+	// Add the table to the tableDiv node
 	tableDiv.appendChild(table);
 };
 
